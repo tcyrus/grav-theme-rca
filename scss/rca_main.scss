@@ -1,0 +1,265 @@
+@charset "UTF-8";
+
+body {
+	background-image: url("/images/galaxy.jpg");
+	font: calc(100% / 1.4) Verdana, Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+// Element / tag selectors
+
+ul, ol, dl {
+	// Due to variations between browsers, it's best practices to zero padding and margin on lists.
+	// For consistency, you can either specify the amounts you want here, or on the list items (LI, DT, DD) they contain.
+	// Remember that what you do here will cascade to the .nav list unless you write a more specific selector.
+	padding: 0;
+	margin: 0;
+}
+
+h1 {
+	// Removing the top margin gets around an issue where margins can escape from their containing block.
+	// The remaining bottom margin will hold it away from any elements that follow.
+	margin-top: 0;
+	// Adding the padding to the sides of the elements within the blocks, instead of the block elements themselves, gets rid of any box model math.
+	// A nested block with side padding can also be used as an alternate method.
+	padding-left: 15px;
+	padding-right: 15px;
+	color: #374225;
+	font-family: "Lust Script";
+}
+
+h4 {
+	margin-bottom: 0;
+}
+
+h5 {
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 30px;
+	font-size: medium;
+	text-decoration: underline;
+}
+
+h2, h3, h4, h5, h6 {
+	font-family: Lust-Regular;
+	color: #374225;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+p {
+	// Removing the top margin gets around an issue where margins can escape from their containing block.
+	// The remaining bottom margin will hold it away from any elements that follow.
+	margin-top: 0;
+	// Adding the padding to the sides of the elements within the blocks, instead of the block elements themselves, gets rid of any box model math.
+	// A nested block with side padding can also be used as an alternate method.
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+a {
+	section & {
+		color: #ea706e;
+		text-decoration: none;
+	}
+
+	img {
+		// This selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link.
+		border: none;
+	}
+
+	// Styling for your site's links must remain in this order - including the group of selectors that create the hover effect.
+	nav &:link {
+		color: #374225;
+		// unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification
+		text-decoration: none;
+	}
+
+	&:hover, &:active, &:focus {
+		// This group of selectors will give a keyboard navigator the same hover experience as the person using a mouse.
+		text-decoration: none;
+	}
+}
+
+// This fixed width container surrounds all other blocks
+.container {
+	background-color: rgba(255, 255, 255, .85);
+	// The auto value on the sides, coupled with the width, centers the layout.
+	margin: 10px;
+}
+
+// The header is not given a width. It will extend the full width of your layout.
+// header {}
+
+// These are the columns for the layout.
+// 1) Padding is only placed on the top and/or bottom of the block elements. The elements within these blocks have padding on their sides. This saves you from any "box model math". Keep in mind, if you add any side padding or border to the block itself, it will be added to the width you define to create the *total* width. You may also choose to remove the padding on the element in the block element and place a second block element within it with no width and the padding necessary for your design.
+// 2) No margin has been given to the columns since they are all floated. If you must add margin, avoid placing it on the side you're floating toward (for example: a right margin on a block set to float right). Many times, padding can be used instead. For blocks where this rule must be broken, you should add a "display:inline" declaration to the block element's rule to tame a bug where some versions of Internet Explorer double the margin.
+// 3) Since classes can be used multiple times in a document (and an element can also have multiple classes applied), the columns have been assigned class names instead of IDs. For example, two sidebar blocks could be stacked if necessary. These can very easily be changed to IDs if that's your preference, as long as you'll only be using them once per document.
+// 4) If you prefer your nav on the left instead of the right, simply float these columns the opposite direction (all left instead of all right) and they'll render in reverse order. There's no need to move the blocks around in the HTML source.
+
+.sidebar1 {
+	float: left;
+	width: 180px;
+	padding-bottom: 10px;
+}
+
+// These are the columns for the layout.
+// 1) Padding is only placed on the top and/or bottom of the block elements. The elements within these blocks have padding on their sides. This saves you from any "box model math". Keep in mind, if you add any side padding or border to the block itself, it will be added to the width you define to create the *total* width. You may also choose to remove the padding on the element in the block element and place a second block element within it with no width and the padding necessary for your design.
+// 2) No margin has been given to the columns since they are all floated. If you must add margin, avoid placing it on the side you're floating toward (for example: a right margin on a block set to float right). Many times, padding can be used instead. For blocks where this rule must be broken, you should add a "display:inline" declaration to the block element's rule to tame a bug where some versions of Internet Explorer double the margin.
+// 3) Since classes can be used multiple times in a document (and an element can also have multiple classes applied), the columns have been assigned class names instead of IDs. For example, two sidebar blocks could be stacked if necessary. These can very easily be changed to IDs if that's your preference, as long as you'll only be using them once per document.
+// 4) If you prefer your nav on the left instead of the right, simply float these columns the opposite direction (all left instead of all right) and they'll render in reverse order. There's no need to move the blocks around in the HTML source.
+
+.sidebar2 {
+	float: right;
+	width: 175px;
+	padding-bottom: 10px;
+	border-left: thin solid #374225;
+
+	a {
+		padding-left: 15px;
+		font-style: italic;
+	}
+}
+
+.content {
+	padding: 10px 0;
+	width: 70%;
+	float: left;
+
+	// This grouped selector gives the lists in the .content area space
+	ul, ol {
+		// This padding mirrors the right padding in the headings and paragraph rule above.
+		// Padding was placed on the bottom for space between other elements on the lists and on the left to create the indention.
+		// These may be adjusted as you wish.
+		padding: 0 15px 15px 40px;
+	}
+}
+
+nav {
+	// The navigation list styles (can be removed if you choose to use a premade flyout menu like Spry)
+	ul {
+		// This creates the top border for the links - all others are placed using a bottom border on the LI
+		list-style: none;
+		margin-bottom: 15px;
+		border-right: thin solid #374225;
+
+		#cur {
+			background-color: rgba(234, 112, 110, .5);
+			color: #FFF;
+		}
+	}
+	
+	li {}
+
+	a {
+		&, &:visited {
+			// Grouping these selectors makes sure that your links retain their button look even after being visited
+			padding: 5px 5px 5px 15px;
+			// This gives the link block properties causing it to fill the whole LI containing it.
+			// This causes the entire area to react to a mouse click.
+			display: block;
+			// This width makes the entire button clickable for IE6. If you don't need to support IE6, it can be removed.
+			// Calculate the proper width by subtracting the padding on this link from the width of your sidebar container.
+			width: 160px;
+			text-decoration: none;
+			color: #374225;
+		}
+
+		&:hover, &:active, &:focus {
+			// This changes the background and text color for both mouse and keyboard navigators
+			background-color: #ea706e;
+			color: #FFF;
+		}
+	}
+}
+
+// The footer
+footer {
+	padding: 10px 0;
+	// This gives IE6 hasLayout to properly clear
+	position: relative;
+	// This clear property forces the .container to understand where the columns end and contain them
+	clear: both;
+}
+
+// HTML5 support - Sets new HTML5 tags to display: block so browsers know how to render the tags properly.
+header, section, footer, aside, article, figure {
+	display: block;
+}
+
+header {
+	#header_bar {
+		height: 30px;
+		width: 75%;
+		background-image: linear-gradient(90deg, rgba(234, 112, 110, 1) 0%, rgba(234, 112, 110, 0) 100%);
+		margin-left: 16px;
+		margin-top: 0;
+		margin-bottom: 12px;
+	}
+
+	.container & h1 {
+		margin-bottom: 0;
+		padding-top: 7px;
+	}
+}
+
+#share-buttons img {
+	width: 35px;
+	padding: 5px;
+	border: 0;
+	box-shadow: 0;
+	display: inline;
+}
+
+.content #verse {
+	font-style: italic;
+	font-size: small;
+	// border-spacing: px px;
+}
+
+#tween_articles {
+	border-top: thin solid #374225;
+	width: 90%;
+	margin-left: 30px;
+	height: 3px;
+}
+
+.container footer address {
+	padding-left: 15px;
+}
+
+section {
+	#sub {
+		padding-left: 30px;
+	}
+
+	#title {
+		font-weight: bold;
+		margin-bottom: 0;
+		color: #374225;
+	}
+
+	a:hover {
+		color: #b35454;
+	}
+}
+
+tbody tr th {
+	padding-bottom: 15px;
+	text-align: left;
+	color: #374225;
+}
+
+table {
+	padding-left: 15px;
+}
+
+.content #churches p {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+tr.smallgroup:nth-child(odd) {
+	background-color: #ebbfbe;
+}

@@ -1,0 +1,14 @@
+<div class="sidebar1">
+<nav>
+<ul>
+    {% for page in pages.children.visible %}
+        {% set current_page = (page.active or page.activeChild) %}
+        <li {% if current_page %}id="cur"{% endif %}>
+            <a href="{{ page.url }}">
+                {{ page.menu }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+</nav>
+</div>

@@ -1,0 +1,15 @@
+{
+   "project": "grav-theme-rca",
+   "platforms": {
+      "grav": {
+         "nodes": {
+            "theme": [
+               {
+                  "source": "/",
+                  "destination": "/user/themes/rca"
+               }
+            ]
+         }
+      }
+   }
+}

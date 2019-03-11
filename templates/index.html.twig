@@ -1,0 +1,9 @@
+{% embed 'partials/base.html.twig' %}
+
+
+{% block sidebar %}
+	{{ parent() }}
+    {% include 'partials/sidebar2.html.twig' %}
+{% endblock %}
+
+{% endembed %}
