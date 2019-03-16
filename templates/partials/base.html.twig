@@ -11,7 +11,7 @@
     <link rel="canonical" href="{{ page.url(true, true) }}" />
 
     {% block stylesheets %}
-        {% do assets.addCss('theme://css-compiled/rca-main.css', 100) %}
+        {% do assets.addCss('theme://css-compiled/rca_main.css') %}
     {% endblock %}
 
     {{ assets.css() }}
@@ -20,7 +20,6 @@
         <!--[if lt IE 9]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
     {% endblock %}
 
     {{ assets.js() }}
@@ -43,6 +42,7 @@
         {% block body %}
         <article class="content">
             {% block content %}{% endblock %}
+        </article>
         {% endblock %}
 
         {% block footer %}

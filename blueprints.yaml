@@ -1,11 +1,11 @@
-name: Antimatter
-version: 2.1.2
-description: "Antimatter is the default theme included with **Grav**"
+name: RCA
+version: 0.0.1
+description: "Theme for RPI RCA Site"
 icon: empire
 author:
-  name: Team Grav
-  email: devs@getgrav.org
-  url: http://getgrav.org
+  name: Timothy Cyrus
+  email: cyrust@rpi.edu
+  url: https://tcyr.us/
 homepage: https://github.com/getgrav/grav-theme-antimatter
 demo: http://demo.getgrav.org/blog-skeleton
 keywords: antimatter, theme, core, modern, fast, responsive, html5, css3

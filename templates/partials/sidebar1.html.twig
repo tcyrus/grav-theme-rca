@@ -1,14 +1,21 @@
+{% macro loop(page) %}
+    {% for p in page.children.visible %}
+        {% set current_page = (p.active or p.activeChild) %}
+        <li{% if p.active %} id="cur"{% endif %}>
+            <a href="{{ p.url }}">
+                {{ p.menu }}
+            </a>
+        </li>
+        {% if p.children.visible.count > 0 %}
+            {{ _self.loop(p) }}
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
 <div class="sidebar1">
 <nav>
 <ul>
-    {% for page in pages.children.visible %}
-        {% set current_page = (page.active or page.activeChild) %}
-        <li {% if current_page %}id="cur"{% endif %}>
-            <a href="{{ page.url }}">
-                {{ page.menu }}
-            </a>
-        </li>
-    {% endfor %}
+    {{ _self.loop(pages) }}
 </ul>
 </nav>
 </div>
